@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerSlime : Slime
+public class PlayerSlime : Creature
 {
     private Vector2 playerMovement = Vector2.zero;
 
-    public override void Move()
+    protected override void OnDeath()
+    {
+
+    }
+
+    protected override void Move()
     {
         //animator.SetFloat("Speed", Mathf.Abs(horizontalSpeed));
         transform.Translate(playerMovement * Time.deltaTime, Space.Self);
-        Animator.SetFloat("Speed", Mathf.Abs(playerMovement.x));
+        Animator.SetFloat("Speed", Mathf.Abs(playerMovement.magnitude));
     }
 
     private void MovePlayer(InputAction.CallbackContext context)

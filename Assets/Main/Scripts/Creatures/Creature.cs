@@ -8,10 +8,12 @@ public abstract class Creature : MonoBehaviour
     [SerializeField] Animator animator = null;
     [SerializeField] SpriteRenderer spriteRenderer = null;
     [SerializeField] HealthSystem creatureHealth = null;
+    [SerializeField] Rigidbody2D creatureBody = null;
 
     // Public References
     public Animator Animator => animator;
     public SpriteRenderer SpriteRenderer => spriteRenderer;
+    public Rigidbody2D CreatureBody => creatureBody;
 
     // Cached Variables
     public float movementSpeed = 0;
@@ -19,10 +21,18 @@ public abstract class Creature : MonoBehaviour
 
     void Start()
     {
+        creatureHealth.OnDeath += OnDeath;
+    }
+
+    void OnDestroy()
+    {
+        creatureHealth.OnDeath -= OnDeath;
     }
 
     // Update is called once per frame
     void Update() => Move();
 
-    public abstract void Move();
+    protected abstract void Move();
+
+    protected abstract void OnDeath();
 }
