@@ -11,14 +11,15 @@ public class HealthSystem : MonoBehaviour
 
     // Public References
     public int Health => health;
+    public int MaxHealth => maxHealth;
 
     // Cached Components
     public Action OnDeath;
 
     public void TakeDamage(int reducedHealth)
     {
-        if (reducedHealth >= 0 || health >= 0) return;
-        if (health - reducedHealth > 0)
+        if (reducedHealth <= 0 || health <= 0) return;
+        if (health - reducedHealth < 0)
         {
             OnDeath?.Invoke();
             health = 0;
