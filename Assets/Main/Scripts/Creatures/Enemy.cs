@@ -36,9 +36,8 @@ public class Enemy : Creature
         yield return new WaitForSeconds(.2f);
         float distance = Vector2.Distance(transform.position, gameManager.GameManagerInstance.Player.transform.position);
         Vector2 direction = gameManager.GameManagerInstance.Player.transform.position - this.transform.position;
-        CreatureBody.AddForce(direction * 10);
+        CreatureBody.AddForce(direction.normalized * 20);
         MoveEnemy = null;
-
     }
 
 }

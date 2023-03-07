@@ -648,6 +648,67 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &380479954
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1913433052}
+    m_Modifications:
+    - target: {fileID: 1625896851428485129, guid: 43fe406761d777d47907592727cc1ede, type: 3}
+      propertyPath: Offset.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625896851428485130, guid: 43fe406761d777d47907592727cc1ede, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625896851428485130, guid: 43fe406761d777d47907592727cc1ede, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625896851428485130, guid: 43fe406761d777d47907592727cc1ede, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625896851428485130, guid: 43fe406761d777d47907592727cc1ede, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625896851428485130, guid: 43fe406761d777d47907592727cc1ede, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625896851428485130, guid: 43fe406761d777d47907592727cc1ede, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625896851428485130, guid: 43fe406761d777d47907592727cc1ede, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625896851428485130, guid: 43fe406761d777d47907592727cc1ede, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625896851428485130, guid: 43fe406761d777d47907592727cc1ede, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625896851428485130, guid: 43fe406761d777d47907592727cc1ede, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625896851428485130, guid: 43fe406761d777d47907592727cc1ede, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625896851428485131, guid: 43fe406761d777d47907592727cc1ede, type: 3}
+      propertyPath: m_Name
+      value: HealthBar
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 43fe406761d777d47907592727cc1ede, type: 3}
 --- !u!1 &970567427
 GameObject:
   m_ObjectHideFlags: 0
@@ -28556,6 +28617,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1570097936}
   m_CullTransparentMesh: 1
+--- !u!114 &1867083448 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6499407236801660695, guid: 43fe406761d777d47907592727cc1ede, type: 3}
+  m_PrefabInstance: {fileID: 380479954}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b9bc0ba5bddb844a1931bb7a2e14cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1867083449 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1625896851428485130, guid: 43fe406761d777d47907592727cc1ede, type: 3}
+  m_PrefabInstance: {fileID: 380479954}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1913433051
 GameObject:
   m_ObjectHideFlags: 0
@@ -28573,7 +28650,7 @@ GameObject:
   - component: {fileID: 1913433058}
   m_Layer: 0
   m_Name: Green Slime
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28589,7 +28666,8 @@ Transform:
   m_LocalPosition: {x: -8.409564, y: 2.7035608, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1867083449}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -28683,6 +28761,7 @@ MonoBehaviour:
   creatureBody: {fileID: 1913433057}
   movementSpeed: 2
   Speed: 0
+  healthBar: {fileID: 1867083448}
 --- !u!58 &1913433056
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -28696,9 +28775,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.08}
+  m_Offset: {x: 0, y: -0.17}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.38
 --- !u!50 &1913433057
 Rigidbody2D:
   serializedVersion: 4
@@ -28712,14 +28791,14 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDrag: 10
+  m_AngularDrag: 2
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1913433058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28751,7 +28830,7 @@ GameObject:
   - component: {fileID: 2132273343}
   m_Layer: 0
   m_Name: Goblin
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28836,7 +28915,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132273336}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.19, y: 0, z: 0}
+  m_LocalPosition: {x: -11.01, y: 1.5, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28855,8 +28934,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 787cc048b89492e488219c481d351d60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1000
-  maxHealth: 1000
+  health: 10
+  maxHealth: 10
 --- !u!50 &2132273341
 Rigidbody2D:
   serializedVersion: 4
@@ -28870,7 +28949,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 2
+  m_LinearDrag: 5
   m_AngularDrag: 2
   m_GravityScale: 0
   m_Material: {fileID: 0}

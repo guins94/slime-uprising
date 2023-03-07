@@ -14,6 +14,7 @@ public abstract class Creature : MonoBehaviour
     public Animator Animator => animator;
     public SpriteRenderer SpriteRenderer => spriteRenderer;
     public Rigidbody2D CreatureBody => creatureBody;
+    public HealthSystem CreatureHealth => creatureHealth;
 
     // Cached Variables
     public float movementSpeed = 0;
