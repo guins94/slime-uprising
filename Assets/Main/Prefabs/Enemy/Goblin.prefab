@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1500564137784901140}
   - component: {fileID: 1500564137784901136}
   - component: {fileID: 1500564137784901137}
+  - component: {fileID: 2466955307088179995}
   - component: {fileID: 1500564137784901138}
   m_Layer: 0
   m_Name: Goblin
@@ -53,8 +54,12 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1500564137784901143}
   creatureHealth: {fileID: 1500564137784901137}
   creatureBody: {fileID: 1500564137784901136}
-  movementSpeed: 1.5
-  Speed: 0
+  creatureArmor: {fileID: 2466955307088179995}
+  explosion: {fileID: 4797261465186692032, guid: d8a097b61ecf3444e958f67aaf8b67c2, type: 3}
+  CreatureDamageType: 1
+  CreatureHitDamage: 100
+  movementSpeed: 20
+  pushForce: 200
 --- !u!212 &1500564137784901143
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -162,6 +167,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   maxHealth: 10
+--- !u!114 &2466955307088179995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500564137784901141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28e7752c1bd9fd14cad1483f35a1251e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  physicArmor: 1
+  magicArmor: 1
 --- !u!58 &1500564137784901138
 CircleCollider2D:
   m_ObjectHideFlags: 0
