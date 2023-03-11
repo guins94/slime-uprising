@@ -6,6 +6,11 @@ public class PlayerSlime : Creature
 {
     [Header("Player Slime References")]
     [SerializeField] HealthBar healthBar = null;
+    [SerializeField] ShooterSystem shooterSystem = null;
+    //[SerializeField] ShooterSystem
+
+    // Public References
+    public ShooterSystem ShooterSystem => shooterSystem;
     private Vector2 playerMovement = Vector2.zero;
 
     // Player Collision Cooldown Control
@@ -18,13 +23,13 @@ public class PlayerSlime : Creature
 
     protected override void Move()
     {
-        CreatureBody.AddForce(playerMovement * 1.4f);
+        CreatureBody.AddForce(playerMovement * movementSpeed);
         Animator.SetFloat("Speed", Mathf.Abs(playerMovement.magnitude));
     }
 
     private void MovePlayer(InputAction.CallbackContext context)
     {
-        Debug.Log("Player move " + context.ReadValue<Vector2>().y);
+        //Debug.Log("Player move " + context.ReadValue<Vector2>().y);
         playerMovement = new Vector2(context.ReadValue<Vector2>().x * movementSpeed, context.ReadValue<Vector2>().y * movementSpeed);
 
         if (context.ReadValue<Vector2>().x <=0 ) SpriteRenderer.flipX = true;
@@ -66,10 +71,7 @@ public class PlayerSlime : Creature
     {
         if (collision.CompareTag("Enemy"))
         {
-            // Moves the player
-            float distance = Vector2.Distance(transform.position, collision.transform.position);
-            Vector2 direction = collision.transform.position - this.transform.position;
-            CreatureBody.AddForce(-direction * 200);
+            PushEffect(transform.position, collision.transform.position, -pushForce);
         }
     }
 
@@ -88,7 +90,10 @@ public class PlayerSlime : Creature
         {
             Animator.SetBool("Damage", true);
             yield return new WaitForSeconds(.1f);
-            CreatureHealth.TakeDamage(100);
+            Creature enemy = collision.gameObject.GetComponent<Creature>();
+            int damageTaken = (int) CreatureArmor.CalculatedDamage(enemy.CreatureDamageType, enemy.CreatureHitDamage);
+            CreatureHealth.TakeDamage(damageTaken);
+            gameManager.DamageUIMessager.ShowDamageUI(damageTaken.ToString(), this.transform.position);
             healthBar.SetHealth(CreatureHealth.Health, CreatureHealth.MaxHealth);
             PlayerHurtCoolDown = null;
             Animator.SetBool("Damage", false);
