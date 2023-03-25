@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6891665778487694091}
   - component: {fileID: 1148256485784102741}
-  - component: {fileID: 5033663183510325585}
+  - component: {fileID: 7059889021682644427}
   - component: {fileID: 4960923288973390769}
   - component: {fileID: 457942894287381836}
   m_Layer: 0
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5033663183510325585
+--- !u!114 &7059889021682644427
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,14 +100,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletBody: {fileID: 4960923288973390769}
-  baseFrequencie: 2
-  radiusLength: 4
+  bulletType: 0
+  damageType: 1
+  bulletMovement: {fileID: 0}
+  BulletLevel: 0
+  BulletDamage: 4
   slow: 0
   explosion: 1
   burn: 0
   push: 0
-  offsetFrequencie: 0
-  offsetRadius: 0
+  gameManager: {fileID: 0}
 --- !u!50 &4960923288973390769
 Rigidbody2D:
   serializedVersion: 4
