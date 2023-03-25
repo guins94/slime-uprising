@@ -5,33 +5,32 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] Rigidbody2D BulletBody = null;
-    [SerializeField] float baseFrequencie = 2f;
-    [SerializeField] float radiusLength = 4f;
+    [SerializeField] BulletType bulletType = BulletType.CompleteCircleBook;
+    [SerializeField] DamageType damageType = DamageType.Physic;
+
+    // 
+    public BulletMovement bulletMovement = null;
+
+    public int BulletLevel = 0;
+    public float BulletDamage = 0;
 
     public bool slow = false;
     public bool explosion = false;
     public bool burn = false;
     public bool push = false;
 
-    public float offsetFrequencie = 0f;
+    public DamageType DamageType => damageType;
 
-    public float offsetRadius = 0f;
+    public BulletType BulletType => bulletType;
 
-    GameManager gameManager = null;
-
-    Coroutine BulletCoroutine = null;
-
-    Vector3 TargetPosition = Vector2.zero;
+    public GameManager gameManager = null;
 
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
-    }
 
-    void Update()
-    {
-        float targetPositionX = gameManager.GameManagerInstance.Player.transform.position.x + (radiusLength + offsetRadius)*Mathf.Sin((Time.time + offsetFrequencie) * baseFrequencie);
-        float targetPositionY = gameManager.GameManagerInstance.Player.transform.position.y + (radiusLength + offsetRadius)*Mathf.Cos((Time.time + offsetFrequencie) * baseFrequencie);
-        transform.position = new Vector2(targetPositionX, targetPositionY);
+        //if (damageType = )
+
+        //if (bulletType == BulletType.CompleteCircleBook);
     }
 }
