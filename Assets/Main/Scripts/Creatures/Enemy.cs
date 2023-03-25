@@ -6,6 +6,7 @@ public class Enemy : Creature
 {
     Coroutine MoveEnemy = null;
     Coroutine BulletHitCoroutine = null;
+    Coroutine EnemyHurtCoolDown = null;
     protected override void Move()
     {
         Animator.SetFloat("Speed", Mathf.Abs(CreatureBody.velocity.magnitude));
@@ -53,6 +54,29 @@ public class Enemy : Creature
             PushEffect(gameManager.GameManagerInstance.Player.transform.position, transform.position, pushForce/2);
             yield return new WaitForSeconds(.8f);
             BulletHitCoroutine = null;
+        }
+    }
+
+    /// <summary>
+    /// Hitting a Enemy damanges the player
+    /// </summary>
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Bullet"))
+        {
+            // Hurts the Player
+            EnemyHurtCoolDown = StartCoroutine(HurtPlayerAfterCooldown());
+        }
+
+        IEnumerator HurtPlayerAfterCooldown()
+        {
+            Animator.SetBool("Damage", true);
+            yield return new WaitForSeconds(.1f);
+            int damageTaken = (int) CreatureArmor.CalculatedDamage(gameManager.GameManagerInstance.Player.CreatureDamageType, gameManager.GameManagerInstance.Player.CreatureHitDamage);
+            CreatureHealth.TakeDamage(damageTaken);
+            gameManager.DamageUIMessager.ShowDamageUI(damageTaken.ToString(), this.transform.position);
+            EnemyHurtCoolDown = null;
+            Animator.SetBool("Damage", false);
         }
     }
 }
