@@ -27,6 +27,8 @@ public abstract class Creature : MonoBehaviour
     public float movementSpeed = 0;
     public float pushForce = 200;
 
+    private bool creatureIsSlowed = false;
+
     public GameManager gameManager = null;
 
     void Start()
@@ -45,7 +47,18 @@ public abstract class Creature : MonoBehaviour
     /// </summary>
     public void SlowEffect()
     {
-        movementSpeed = movementSpeed / 2;
+        if (!creatureIsSlowed) StartCoroutine(SlowEffect());
+
+        IEnumerator SlowEffect()
+        {
+            creatureIsSlowed = true;
+            float originalMovementSpeed = movementSpeed;
+            movementSpeed = movementSpeed / 2;
+            yield return new WaitForSeconds(4f);
+            movementSpeed = originalMovementSpeed;
+            creatureIsSlowed = false;
+        }
+        
     }
 
     /// <summary>
@@ -65,7 +78,7 @@ public abstract class Creature : MonoBehaviour
 
         IEnumerator BurnEffect()
         {
-            for (int i = 0; i >= 3; i++)
+            for (int i = 0; i <= 3; i++)
             {
                 creatureHealth.TakeDamage(3);
                 gameManager.DamageUIMessager.ShowDamageUI("3", this.transform.position);
