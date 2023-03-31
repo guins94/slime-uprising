@@ -19,7 +19,7 @@ public class BulletFowardBook : BulletMovement
     {
         AppearIdle(.2f);
         if (ShootDelayCoroutine == null) ShootDelayCoroutine = StartCoroutine(ShootDelay());
-        if (gameManager.GameManagerInstance.Player.CreatureBody.velocity.normalized == Vector2.zero)
+        if (GameManager.Player.CreatureBody.velocity.normalized == Vector2.zero)
         {
             CompassVectorDirection = new Vector2(Random.Range(50,-50), Random.Range(50,-50)).normalized;
         }
@@ -31,9 +31,9 @@ public class BulletFowardBook : BulletMovement
 
     public IEnumerator ShootDelay()
     {
-        transform.position = new Vector2 (gameManager.GameManagerInstance.Player.transform.position.x , gameManager.GameManagerInstance.Player.transform.position.y);
-        Vector2 target = new Vector2 (gameManager.GameManagerInstance.Player.CreatureBody.velocity.normalized.x + CompassVectorDirection.x, 
-        gameManager.GameManagerInstance.Player.CreatureBody.velocity.normalized.y + CompassVectorDirection.y);
+        transform.position = new Vector2 (GameManager.Player.transform.position.x , GameManager.Player.transform.position.y);
+        Vector2 target = new Vector2 (GameManager.Player.CreatureBody.velocity.normalized.x + CompassVectorDirection.x, 
+        GameManager.Player.CreatureBody.velocity.normalized.y + CompassVectorDirection.y);
 
         if (bulletRigidbody2D != null)
         {

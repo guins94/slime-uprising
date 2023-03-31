@@ -29,12 +29,10 @@ public abstract class Creature : MonoBehaviour
 
     private bool creatureIsSlowed = false;
 
-    public GameManager gameManager = null;
-
     void Start()
     {
         creatureHealth.OnDeath += OnDeath;
-        gameManager = FindObjectOfType<GameManager>();
+        PlayerSlime slime = GameManager.Player;
     }
 
     void OnDestroy()
@@ -81,7 +79,7 @@ public abstract class Creature : MonoBehaviour
             for (int i = 0; i <= 3; i++)
             {
                 creatureHealth.TakeDamage(3);
-                gameManager.DamageUIMessager.ShowDamageUI("3", this.transform.position);
+                GameManager.DamageUIMessager.ShowDamageUI("3", this.transform.position);
                 yield return new WaitForSeconds(1f);
             }
         }

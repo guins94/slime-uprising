@@ -22,15 +22,4 @@ public class Bullet : MonoBehaviour
     public DamageType DamageType => damageType;
 
     public BulletType BulletType => bulletType;
-
-    public GameManager gameManager = null;
-
-    void Start()
-    {
-        gameManager = FindObjectOfType<GameManager>();
-
-        //if (damageType = )
-
-        //if (bulletType == BulletType.CompleteCircleBook);
-    }
 }

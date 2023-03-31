@@ -7,8 +7,8 @@ public class BulletCompleteCircleBook : BulletMovement
     public float offsetFrequencie = 0;
     void Update()
     {
-        targetPositionX = gameManager.GameManagerInstance.Player.transform.position.x + (RadiusLength + offsetRadius)*Mathf.Sin((Time.time + offsetFrequencie) * BaseFrequencie);
-        targetPositionY = gameManager.GameManagerInstance.Player.transform.position.y + (RadiusLength + offsetRadius)*Mathf.Cos((Time.time + offsetFrequencie) * BaseFrequencie);
+        targetPositionX = GameManager.Player.transform.position.x + (RadiusLength + offsetRadius)*Mathf.Sin((Time.time + offsetFrequencie) * BaseFrequencie);
+        targetPositionY = GameManager.Player.transform.position.y + (RadiusLength + offsetRadius)*Mathf.Cos((Time.time + offsetFrequencie) * BaseFrequencie);
         transform.position = new Vector2(targetPositionX, targetPositionY);
     }
 

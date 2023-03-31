@@ -14,7 +14,7 @@ public class Enemy : Creature
         if (CreatureBody.velocity.x <= 0 ) SpriteRenderer.flipX = true;
         else SpriteRenderer.flipX = false;
 
-        if (gameManager.GameManagerInstance.Player != null && MoveEnemy == null)
+        if (GameManager.Player != null && MoveEnemy == null)
         {
             MoveEnemy = StartCoroutine(EnemyMovement());
         }
@@ -28,8 +28,8 @@ public class Enemy : Creature
     private IEnumerator EnemyMovement()
     {
         yield return new WaitForSeconds(.2f);
-        float distance = Vector2.Distance(transform.position, gameManager.GameManagerInstance.Player.transform.position);
-        Vector2 direction = gameManager.GameManagerInstance.Player.transform.position - this.transform.position;
+        float distance = Vector2.Distance(transform.position, GameManager.Player.transform.position);
+        Vector2 direction = GameManager.Player.transform.position - this.transform.position;
         CreatureBody.AddForce(direction.normalized * movementSpeed);
         MoveEnemy = null;
     }
@@ -46,12 +46,12 @@ public class Enemy : Creature
             if (EnemyBullet.slow == true) SlowEffect();
             if (EnemyBullet.explosion == true) ExplosionEffect(collision.transform.position);
             if (EnemyBullet.burn == true) BurnEffect();
-            if (EnemyBullet.push == true) PushEffect(gameManager.GameManagerInstance.Player.transform.position, transform.position, pushForce);
+            if (EnemyBullet.push == true) PushEffect(GameManager.Player.transform.position, transform.position, pushForce);
         }
 
         IEnumerator BulletHit()
         {
-            PushEffect(gameManager.GameManagerInstance.Player.transform.position, transform.position, pushForce/2);
+            PushEffect(GameManager.Player.transform.position, transform.position, pushForce/2);
             yield return new WaitForSeconds(.8f);
             BulletHitCoroutine = null;
         }
@@ -72,9 +72,9 @@ public class Enemy : Creature
         {
             Animator.SetBool("Damage", true);
             yield return new WaitForSeconds(.1f);
-            int damageTaken = (int) CreatureArmor.CalculatedDamage(gameManager.GameManagerInstance.Player.CreatureDamageType, gameManager.GameManagerInstance.Player.CreatureHitDamage);
+            int damageTaken = (int) CreatureArmor.CalculatedDamage(GameManager.Player.CreatureDamageType, GameManager.Player.CreatureHitDamage);
             CreatureHealth.TakeDamage(damageTaken);
-            gameManager.DamageUIMessager.ShowDamageUI(damageTaken.ToString(), this.transform.position);
+            GameManager.DamageUIMessager.ShowDamageUI(damageTaken.ToString(), this.transform.position);
             EnemyHurtCoolDown = null;
             Animator.SetBool("Damage", false);
         }

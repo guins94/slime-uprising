@@ -93,7 +93,7 @@ public class PlayerSlime : Creature
             Creature enemy = collision.gameObject.GetComponent<Creature>();
             int damageTaken = (int) CreatureArmor.CalculatedDamage(enemy.CreatureDamageType, enemy.CreatureHitDamage);
             CreatureHealth.TakeDamage(damageTaken);
-            gameManager.DamageUIMessager.ShowDamageUI(damageTaken.ToString(), this.transform.position);
+            GameManager.DamageUIMessager.ShowDamageUI(damageTaken.ToString(), this.transform.position);
             healthBar.SetHealth(CreatureHealth.Health, CreatureHealth.MaxHealth);
             PlayerHurtCoolDown = null;
             Animator.SetBool("Damage", false);

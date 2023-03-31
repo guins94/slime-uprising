@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PowerUp : Item
@@ -10,9 +9,9 @@ public class PowerUp : Item
 
     public override IEnumerator ItemEffect()
     {
-        if (gameManager.GameManagerInstance.Player != null)
+        if (GameManager.Player != null)
         {
-            gameManager.GameManagerInstance.Player.CreatureArmor.RaiseArmor(armorDamageType, armorGained);
+            GameManager.Player.CreatureArmor.RaiseArmor(armorDamageType, armorGained);
         }
         yield return null;
     }

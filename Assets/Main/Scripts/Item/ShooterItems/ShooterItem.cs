@@ -8,7 +8,7 @@ public class ShooterItem : Item
     [SerializeField] BulletType bulletType = BulletType.CompleteCircleBook;
     public override IEnumerator ItemEffect()
     {
-        gameManager.GameManagerInstance.Player.ShooterSystem.ShooterLevelUp(shooterType, bulletType);
+        GameManager.Player.ShooterSystem.ShooterLevelUp(shooterType, bulletType);
         yield return null;
     }
 }

@@ -23,15 +23,11 @@ public abstract class BulletMovement : MonoBehaviour
     private float timeScale = 0;
     Vector3 StartScale = Vector3.one;
     public Vector2 CompassVectorDirection = Vector2.zero;
-    public GameManager gameManager = null;
 
 
     public void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
         Vector3 StartScale = transform.localScale;
-
-
     }
 
     public void MoveOriginTarget(Vector2 originPosition, Vector2 targetPosition, float duration)

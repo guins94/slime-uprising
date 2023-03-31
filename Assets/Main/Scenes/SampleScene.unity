@@ -990,7 +990,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemSpriteRenderer: {fileID: 419502535}
   itemCollider2D: {fileID: 419502534}
-  gameManager: {fileID: 0}
   armorGained: 24
   armorDamageType: 1
 --- !u!58 &419502534
@@ -1943,7 +1942,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970567427}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.577656, y: 3.2209482, z: -12}
+  m_LocalPosition: {x: -8.453239, y: 3.2209482, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2328,7 +2327,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1149889960}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.577656, y: 3.2209482, z: -12}
+  m_LocalPosition: {x: -8.453239, y: 3.2209482, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11657,7 +11656,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1363572876}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8790fa3290529845a46a04726ed68c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a92b11abd7b9fa4aad4e21472c5e6fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1363572878
@@ -30773,7 +30772,6 @@ MonoBehaviour:
   CreatureHitDamage: 5
   movementSpeed: 1.4
   pushForce: 200
-  gameManager: {fileID: 0}
   healthBar: {fileID: 1867083448}
   shooterSystem: {fileID: 1151072885}
 --- !u!58 &1913433056

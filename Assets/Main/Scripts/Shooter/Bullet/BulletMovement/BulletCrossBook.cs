@@ -7,7 +7,7 @@ public class BulletCrossBook : BulletMovement
     void AppearAndMove()
     {
         
-        Vector2 origin = new Vector2 (gameManager.GameManagerInstance.Player.transform.position.x, gameManager.GameManagerInstance.Player.transform.position.y);
+        Vector2 origin = new Vector2 (GameManager.Player.transform.position.x, GameManager.Player.transform.position.y);
         Vector2 target = new Vector2 (origin.x + (RadiusLength * CompassVectorDirection.x), origin.y + (RadiusLength * CompassVectorDirection.y));
         MoveOriginTarget(origin, target, FireRate);
         AppearIdle(.2f);

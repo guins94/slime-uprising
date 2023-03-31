@@ -6,8 +6,8 @@ public class BulletXBook : BulletMovement
     public float offsetFrequencie = 0;
     void Update()
     {
-        Vector2 origin = new Vector2 (gameManager.GameManagerInstance.Player.transform.position.x + (RadiusLength * CompassVectorDirection.x), gameManager.GameManagerInstance.Player.transform.position.y + (RadiusLength * CompassVectorDirection.y));
-        Vector2 target = new Vector2 (gameManager.GameManagerInstance.Player.transform.position.x - (RadiusLength * CompassVectorDirection.x), gameManager.GameManagerInstance.Player.transform.position.y - (RadiusLength * CompassVectorDirection.y));
+        Vector2 origin = new Vector2 (GameManager.Player.transform.position.x + (RadiusLength * CompassVectorDirection.x), GameManager.Player.transform.position.y + (RadiusLength * CompassVectorDirection.y));
+        Vector2 target = new Vector2 (GameManager.Player.transform.position.x - (RadiusLength * CompassVectorDirection.x), GameManager.Player.transform.position.y - (RadiusLength * CompassVectorDirection.y));
         MoveOriginTarget(origin, target, FireRate);
         AppearIdle(.2f);
         transform.position = new Vector2(targetPositionX, targetPositionY);

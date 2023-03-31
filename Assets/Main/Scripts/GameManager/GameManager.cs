@@ -2,14 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : GameManagerT
 {
-    public GameManager GameManagerInstance { get; protected set; } = null;
-
-    public PlayerSlime Player { get; protected set; } = null;
-
-    public DamageUIMessager DamageUIMessager { get; protected set; } = null;
-
     // Start is called before the first frame update
     void Start()
     {
