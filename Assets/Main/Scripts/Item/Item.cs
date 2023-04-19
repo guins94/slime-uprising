@@ -19,7 +19,7 @@ public abstract class Item : MonoBehaviour
             itemCollider2D.enabled = false;
             ItemSpriteRenderer.enabled = false;
             StartCoroutine(ItemEffect());
-        } 
+        }
     }
 
     public abstract IEnumerator ItemEffect();

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : GameManagerT
@@ -11,6 +9,7 @@ public class GameManager : GameManagerT
         Debug.Log(GameManagerInstance);
         Player = FindObjectOfType<PlayerSlime>();
         DamageUIMessager = FindObjectOfType<DamageUIMessager>();
+        ItemCanvaController = FindObjectOfType<ItemCanvaController>();
     }
 
     // Update is called once per frame

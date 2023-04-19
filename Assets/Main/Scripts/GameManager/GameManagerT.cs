@@ -7,4 +7,6 @@ public abstract class GameManagerT : MonoBehaviour
     public static PlayerSlime Player { get; protected set; } = null;
 
     public static DamageUIMessager DamageUIMessager { get; protected set; } = null;
+
+    public static ItemCanvaController ItemCanvaController { get; protected set; } = null;
 }

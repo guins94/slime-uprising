@@ -7,6 +7,10 @@ public class PlayerSlime : Creature
     [Header("Player Slime References")]
     [SerializeField] HealthBar healthBar = null;
     [SerializeField] ShooterSystem shooterSystem = null;
+
+    [Header("Player Initial Item")]
+    [SerializeField] ShooterItem initialShooterItem = null;
+    [SerializeField] bool hasInitialItem = true;
     //[SerializeField] ShooterSystem
 
     // Public References
@@ -15,6 +19,11 @@ public class PlayerSlime : Creature
 
     // Player Collision Cooldown Control
     private Coroutine PlayerHurtCoolDown = null;
+
+    public void Start()
+    {
+        if (hasInitialItem) StartCoroutine(initialShooterItem.SetInitialItem());
+    }
 
     protected override void OnDeath()
     {
