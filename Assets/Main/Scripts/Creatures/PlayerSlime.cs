@@ -7,6 +7,7 @@ public class PlayerSlime : Creature
     [Header("Player Slime References")]
     [SerializeField] HealthBar healthBar = null;
     [SerializeField] ShooterSystem shooterSystem = null;
+    [SerializeField] ExperienceSystem experienceSystem = null;
 
     [Header("Player Initial Item")]
     [SerializeField] ShooterItem initialShooterItem = null;
@@ -14,6 +15,7 @@ public class PlayerSlime : Creature
     //[SerializeField] ShooterSystem
 
     // Public References
+    public ExperienceSystem ExperienceSystem => experienceSystem;
     public ShooterSystem ShooterSystem => shooterSystem;
     private Vector2 playerMovement = Vector2.zero;
 
@@ -63,6 +65,8 @@ public class PlayerSlime : Creature
 
         healthBar.PlayeFollow(this);
         healthBar.SetHealth(CreatureHealth.Health, CreatureHealth.MaxHealth);
+
+        experienceSystem.ExperienceBarFollow(this);
     }
 
     /// <summary>
