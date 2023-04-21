@@ -2,9 +2,7 @@ using UnityEngine;
 
 public class GameManager : GameManagerT
 {
-    public int maxNumberOfEnemys = 30;
-    public int numberOfEnemysOnScreen = 0;
-    public bool enemysReachedMax => numberOfEnemysOnScreen >= maxNumberOfEnemys;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +12,7 @@ public class GameManager : GameManagerT
         Player = FindObjectOfType<PlayerSlime>();
         DamageUIMessager = FindObjectOfType<DamageUIMessager>();
         ItemCanvaController = FindObjectOfType<ItemCanvaController>();
+        EnemySpawn = FindObjectOfType<EnemySpawn>();
     }
 
     // Update is called once per frame
@@ -21,4 +20,6 @@ public class GameManager : GameManagerT
     {
         
     }
+
+    
 }

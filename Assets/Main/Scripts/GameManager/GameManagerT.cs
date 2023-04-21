@@ -9,4 +9,6 @@ public abstract class GameManagerT : MonoBehaviour
     public static DamageUIMessager DamageUIMessager { get; protected set; } = null;
 
     public static ItemCanvaController ItemCanvaController { get; protected set; } = null;
+
+    public static EnemySpawn EnemySpawn { get; protected set; } = null;
 }
