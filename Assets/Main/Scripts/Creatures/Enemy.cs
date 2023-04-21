@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Enemy : Creature
 {
-    Coroutine MoveEnemy = null;
+    [SerializeField] float enemyCoolDownTimer = 3f;
+    bool disableMovement = false;
+    Coroutine MoveEnemyCoroutine = null;
     Coroutine BulletHitCoroutine = null;
     Coroutine EnemyHurtCoolDown = null;
     protected override void Move()
@@ -14,15 +16,24 @@ public class Enemy : Creature
         if (CreatureBody.velocity.x <= 0 ) SpriteRenderer.flipX = true;
         else SpriteRenderer.flipX = false;
 
-        if (GameManager.Player != null && MoveEnemy == null)
+        if (GameManager.Player != null && MoveEnemyCoroutine == null && !disableMovement)
         {
-            MoveEnemy = StartCoroutine(EnemyMovement());
+            MoveEnemyCoroutine = StartCoroutine(EnemyMovement());
         }
     }
 
     protected override void OnDeath()
     {
+        disableMovement = true;
+        Animator.SetBool("Death", true);
+        GameManager.EnemySpawn.EnemyDefeated(transform.position);
+        StartCoroutine(DestroyEnemy());
 
+        IEnumerator DestroyEnemy()
+        {
+            yield return new WaitForSeconds(enemyCoolDownTimer);
+            Destroy(this.gameObject);
+        }
     }
 
     private IEnumerator EnemyMovement()
@@ -31,7 +42,7 @@ public class Enemy : Creature
         float distance = Vector2.Distance(transform.position, GameManager.Player.transform.position);
         Vector2 direction = GameManager.Player.transform.position - this.transform.position;
         CreatureBody.AddForce(direction.normalized * movementSpeed);
-        MoveEnemy = null;
+        MoveEnemyCoroutine = null;
     }
 
     /// <summary>
@@ -70,13 +81,12 @@ public class Enemy : Creature
 
         IEnumerator HurtPlayerAfterCooldown()
         {
-            Animator.SetBool("Damage", true);
+            Animator.SetTrigger("Damage");
             yield return new WaitForSeconds(.1f);
             int damageTaken = (int) CreatureArmor.CalculatedDamage(GameManager.Player.CreatureDamageType, GameManager.Player.CreatureHitDamage);
             CreatureHealth.TakeDamage(damageTaken);
             GameManager.DamageUIMessager.ShowDamageUI(damageTaken.ToString(), this.transform.position);
             EnemyHurtCoolDown = null;
-            Animator.SetBool("Damage", false);
         }
     }
 }
