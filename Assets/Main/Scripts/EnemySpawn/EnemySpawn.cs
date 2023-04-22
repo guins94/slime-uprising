@@ -6,13 +6,19 @@ public class EnemySpawn : MonoBehaviour
 {
     [SerializeField] Enemy[] enemyToSpawn = null;
     [SerializeField] ExperienceItem experienceItem = null;
+    [SerializeField] MaxExperienceItem maxExperienceItemPrefab = null;
     
     [SerializeField] GameObject[] spawnPosition = null;
-    int indexSpawn = 0;
 
-    public int maxNumberOfEnemys = 30;
+    private MaxExperienceItem maxExperienceItem = null;
+    int indexSpawn = 0;
+    public int maxNumberOfEnemys = 50;
     public int numberOfEnemysOnScreen = 0;
     public bool enemysReachedMax => numberOfEnemysOnScreen >= maxNumberOfEnemys;
+
+    public int maxNumberOfExperienceItem = 200;
+    public int numberOfExperienceItem = 0;
+    public bool experienceItemReachedMax => numberOfExperienceItem >= maxNumberOfExperienceItem;
 
     // Start is called before the first frame update
     void Start()
@@ -34,27 +40,40 @@ public class EnemySpawn : MonoBehaviour
 
     public void SpawnAtRandomPlace()
     {
-        UpdateIndex();
-        Enemy newEnemy = Instantiate(enemyToSpawn[0], spawnPosition[indexSpawn].transform.position, Quaternion.identity);
-        EnemyDefeated(newEnemy.transform.position);
+        if (!enemysReachedMax && maxExperienceItem == null)
+        {
+            numberOfEnemysOnScreen = numberOfEnemysOnScreen + 1;
+            UpdateIndex();
+            Enemy newEnemy = Instantiate(enemyToSpawn[0], spawnPosition[indexSpawn].transform.position, Quaternion.identity);
+        }
     }
 
     public void EnemyDefeated(Vector3 enemyPosition)
     {
-        if (numberOfEnemysOnScreen < maxNumberOfEnemys)
+        numberOfEnemysOnScreen = numberOfEnemysOnScreen - 1;
+        if (experienceItemReachedMax)
+        {
+            if (maxExperienceItem == null)
+                maxExperienceItem = Instantiate(maxExperienceItemPrefab, enemyPosition, Quaternion.identity);
+            else
+                maxExperienceItem.AddExperience();
+        }
+        else
         {
             Instantiate(experienceItem, enemyPosition, Quaternion.identity);
-            numberOfEnemysOnScreen = numberOfEnemysOnScreen - 1;
+            numberOfExperienceItem = numberOfExperienceItem + 1;
         }
     }
 
-    public bool CanCreateEnemy()
+    public void ExperienceItemCollected()
     {
-        if (numberOfEnemysOnScreen >= maxNumberOfEnemys)
-        {
-            return false;
-        }
-        return true;
+        numberOfExperienceItem = numberOfExperienceItem - 1;
+    }
+
+    public void EnemyOutOfScreen(Vector3 enemyPosition)
+    {
+
+        numberOfEnemysOnScreen = numberOfEnemysOnScreen - 1;
     }
 
     IEnumerator SpawnEnemy()
