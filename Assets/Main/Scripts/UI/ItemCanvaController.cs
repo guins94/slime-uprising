@@ -15,7 +15,7 @@ public class ItemCanvaController : MonoBehaviour
 
     public void GetItemImage(Sprite itemImage)
     {
-        if (itemIndex < vectorItemImage.Length - 1)
+        if (itemIndex <= vectorItemImage.Length - 1)
         {
             vectorItemImage[itemIndex].sprite = itemImage;
             itemIndex ++;
