@@ -23,4 +23,10 @@ public abstract class Item : MonoBehaviour
     }
 
     public abstract IEnumerator ItemEffect();
+
+    public IEnumerator ItemDelete()
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(this.gameObject);
+    }
 }
