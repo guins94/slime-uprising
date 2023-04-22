@@ -16,7 +16,7 @@ public class DamageMessage : MonoBehaviour
     private IEnumerator DestroyAfterSeconds()
     {
         yield return new WaitForSeconds(1f);
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 
     public void ChangeText(string text)
