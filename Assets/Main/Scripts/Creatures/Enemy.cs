@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : Creature
 {
+    [SerializeField] Collider2D enemyCollider = null;
     [SerializeField] float enemyCoolDownTimer = 3f;
     bool disableMovement = false;
     Coroutine MoveEnemyCoroutine = null;
@@ -27,6 +28,7 @@ public class Enemy : Creature
         disableMovement = true;
         Animator.SetBool("Death", true);
         GameManager.EnemySpawn.EnemyDefeated(transform.position);
+        enemyCollider.enabled = false;
         StartCoroutine(DestroyEnemy());
 
         IEnumerator DestroyEnemy()
