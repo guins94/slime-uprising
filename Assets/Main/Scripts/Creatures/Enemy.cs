@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : Creature
 {
     [SerializeField] Collider2D enemyCollider = null;
+    [SerializeField] Collider2D enemyColliderPusher = null;
     [SerializeField] float enemyCoolDownTimer = 3f;
     bool disableMovement = false;
     Coroutine MoveEnemyCoroutine = null;
@@ -29,6 +30,7 @@ public class Enemy : Creature
         Animator.SetBool("Death", true);
         GameManager.EnemySpawn.EnemyDefeated(transform.position);
         enemyCollider.enabled = false;
+        enemyColliderPusher.enabled = false;
         StartCoroutine(DestroyEnemy());
 
         IEnumerator DestroyEnemy()
@@ -78,10 +80,16 @@ public class Enemy : Creature
         if (collision.CompareTag("Bullet"))
         {
             // Hurts the Player
-            EnemyHurtCoolDown = StartCoroutine(HurtPlayerAfterCooldown());
+            EnemyHurtCoolDown = StartCoroutine(HurtEnemyAfterCooldown());
         }
 
-        IEnumerator HurtPlayerAfterCooldown()
+        if (collision.CompareTag("Explosion"))
+        {
+            // Hurts the Player
+            EnemyHurtCoolDown = StartCoroutine(HurtEnemyAfterCooldown());
+        }
+
+        IEnumerator HurtEnemyAfterCooldown()
         {
             Animator.SetTrigger("Damage");
             yield return new WaitForSeconds(.1f);

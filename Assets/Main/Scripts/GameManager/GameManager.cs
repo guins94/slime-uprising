@@ -5,7 +5,7 @@ public class GameManager : GameManagerT
     
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         GameManagerInstance = this;
         Debug.Log(GameManagerInstance);
