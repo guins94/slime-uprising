@@ -5,6 +5,12 @@ using UnityEngine;
 public class BulletCompleteCircleBook : BulletMovement
 {
     public float offsetFrequencie = 0;
+
+    private void Start()
+    {
+        base.Start();
+        offsetRadius = -1.2f;
+    }
     void Update()
     {
         targetPositionX = GameManager.Player.transform.position.x + (RadiusLength + offsetRadius)*Mathf.Sin((Time.time + offsetFrequencie) * BaseFrequencie);
