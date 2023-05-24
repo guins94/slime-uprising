@@ -18,11 +18,11 @@ public class HealthSystem : MonoBehaviour
 
     public void TakeDamage(float reducedHealth)
     {
-        if (reducedHealth <= 0 || health <= 0) return;
-        if (health - reducedHealth < 0)
+        if (reducedHealth <= 0 || health < 0) return;
+        if ((health - reducedHealth) <= 1)
         {
-            OnDeath?.Invoke();
             health = 0;
+            OnDeath?.Invoke();
         } 
         else health = Mathf.Ceil(health - reducedHealth);
     }
