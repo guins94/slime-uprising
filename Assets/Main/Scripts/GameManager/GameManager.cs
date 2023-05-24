@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameManager : GameManagerT
 {
-    
+    public bool experienceGoToPlayer = false;
 
     // Start is called before the first frame update
     void Awake()
