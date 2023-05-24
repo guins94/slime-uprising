@@ -161,6 +161,7 @@ MonoBehaviour:
   creatureHealth: {fileID: 613043075550226422}
   creatureBody: {fileID: 613043075550226421}
   creatureArmor: {fileID: 613043075550226423}
+  damageArea: {fileID: 0}
   explosion: {fileID: 4797261465186692032, guid: d8a097b61ecf3444e958f67aaf8b67c2, type: 3}
   CreatureDamageType: 1
   CreatureHitDamage: 5
