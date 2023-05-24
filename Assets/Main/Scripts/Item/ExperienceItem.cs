@@ -16,7 +16,8 @@ public class ExperienceItem : Item
 
     public void Start()
     {
-        //GetComponent
+        GameManager gameManager = FindObjectOfType<GameManager>();
+        if (gameManager != null) goToPlayer = gameManager.experienceGoToPlayer;
     }
 
     public override IEnumerator ItemEffect()
