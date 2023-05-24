@@ -12,7 +12,6 @@ public class PlayerSlime : Creature
     [Header("Player Initial Item")]
     [SerializeField] ShooterItem initialShooterItem = null;
     [SerializeField] bool hasInitialItem = true;
-    //[SerializeField] ShooterSystem
 
     // Public References
     public ExperienceSystem ExperienceSystem => experienceSystem;
