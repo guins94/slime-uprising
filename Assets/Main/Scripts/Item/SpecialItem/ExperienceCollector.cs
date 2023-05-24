@@ -3,8 +3,14 @@ using UnityEngine;
 
 public class ExperienceCollector : Item
 {
+    public bool setExperienceGoToPlayer = false;
     public override IEnumerator ItemEffect()
     {
+        if (setExperienceGoToPlayer)
+        {
+            GameManager gameManager = FindObjectOfType<GameManager>();
+            if (gameManager != null) gameManager.experienceGoToPlayer = true;
+        }
         StartCoroutine(CollectExperience());
         yield return null;
     }
