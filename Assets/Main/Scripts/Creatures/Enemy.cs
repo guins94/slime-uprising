@@ -7,10 +7,13 @@ public class Enemy : Creature
     [SerializeField] Collider2D enemyCollider = null;
     [SerializeField] Collider2D enemyColliderPusher = null;
     [SerializeField] float enemyCoolDownTimer = 3f;
+
+    public bool TakingAreaDamage = false;
     bool disableMovement = false;
     Coroutine MoveEnemyCoroutine = null;
     Coroutine BulletHitCoroutine = null;
     Coroutine EnemyHurtCoolDown = null;
+
     protected override void Move()
     {
         Animator.SetFloat("Speed", Mathf.Abs(CreatureBody.velocity.magnitude));
@@ -47,6 +50,20 @@ public class Enemy : Creature
         Vector2 direction = GameManager.Player.transform.position - this.transform.position;
         CreatureBody.AddForce(direction.normalized * movementSpeed);
         MoveEnemyCoroutine = null;
+    }
+
+    /// <summary>
+    /// Damage Dealt to an Enemy when enterring a damage area
+    /// </summary>
+    public IEnumerator ActivateAreaHit(float areaDamage, float explosionOffSetY, float coolDownDamageArea, GameObject explosionEffect)
+    {
+        int damageTaken = (int) CreatureArmor.CalculatedDamage(DamageType.Magic, areaDamage);
+        CreatureHealth.TakeDamage(damageTaken);
+        GameManager.DamageUIMessager.ShowDamageUI(damageTaken.ToString(), transform.position);
+        Vector2 explosionPosition = new Vector2(transform.position.x, transform.position.y - explosionOffSetY);
+        Instantiate(explosionEffect, explosionPosition, Quaternion.identity);
+        yield return new WaitForSeconds(coolDownDamageArea);
+        if (TakingAreaDamage) StartCoroutine(ActivateAreaHit(areaDamage, explosionOffSetY, coolDownDamageArea, explosionEffect));
     }
 
     /// <summary>
@@ -88,6 +105,7 @@ public class Enemy : Creature
             // Hurts the Player
             EnemyHurtCoolDown = StartCoroutine(HurtEnemyAfterCooldown());
         }
+        
 
         IEnumerator HurtEnemyAfterCooldown()
         {
@@ -97,6 +115,18 @@ public class Enemy : Creature
             CreatureHealth.TakeDamage(damageTaken);
             GameManager.DamageUIMessager.ShowDamageUI(damageTaken.ToString(), this.transform.position);
             EnemyHurtCoolDown = null;
+        }
+    }
+
+    /// <summary>
+    /// Getting off the Damge Area is 
+    /// </summary>
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("DamageArea"))
+        {
+            // Turns On Damage Area on the enemy
+            TakingAreaDamage = false;
         }
     }
 }
