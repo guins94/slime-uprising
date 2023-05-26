@@ -58,7 +58,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6951790828741380124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbc9270dfd3ab5041a068d50fd789b67, type: 3}
+  m_Script: {fileID: 11500000, guid: 5855d52e742f44c4e954ee237503ca40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   areaCollider: {fileID: 6951790828741380126}
