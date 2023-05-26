@@ -1,11 +1,10 @@
 using System.Collections;
-using UnityEngine;
 
 public class AreaDamageItem : Item
 {
     public override IEnumerator ItemEffect()
     {
-        DamageAllEnemyArea playerDamageArea = FindObjectOfType<DamageAllEnemyArea>();
+        SmudgeDamageArea playerDamageArea = FindObjectOfType<SmudgeDamageArea>();
         if (playerDamageArea != null) playerDamageArea.ActivateDamageArea(); 
         yield return null;
     }
