@@ -18,8 +18,8 @@ public class HealthSystem : MonoBehaviour
 
     public void TakeDamage(float reducedHealth)
     {
-        if (reducedHealth <= 0 || health < 0) return;
-        if ((health - reducedHealth) <= 1)
+        if (reducedHealth <= 0 || health <= 0) return;
+        if ((health - reducedHealth) < 1)
         {
             health = 0;
             OnDeath?.Invoke();
