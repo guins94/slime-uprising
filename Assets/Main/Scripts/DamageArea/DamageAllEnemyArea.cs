@@ -1,12 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
-public class DamageAllEnemyArea : DamageArea
+public abstract class DamageAllEnemyArea : DamageArea
 {
-    [SerializeField] GameObject fadingSmudge = null;
-    //Coroutine References
-    Coroutine coolDownCoroutine = null;
-
+    [SerializeField] bool ActivateBurnEffect = false;
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
@@ -16,23 +13,10 @@ public class DamageAllEnemyArea : DamageArea
             {
                 StartCoroutine(enemy.ActivateAreaHit(areaDamage, explosionOffSetY, coolDownDamageArea, ExplosionEffect));
                 enemy.TakingAreaDamage = true;
+                if (ActivateBurnEffect) enemy.BurnEffect();
             }
         }
     }
 
-    public void ActivateDamageArea()
-    {
-        AreaCollider.enabled = true;
-        StartCoroutine(CreateSmudge());
-
-        IEnumerator CreateSmudge()
-        {
-            Vector3 lastPosition = transform.position;
-            yield return new WaitForSeconds(.4f);
-            StartCoroutine(CreateSmudge());
-            yield return new WaitForSeconds(1f);
-            Instantiate(fadingSmudge, transform.position, Quaternion.identity);
-            
-        }
-    }
+    public abstract void ActivateDamageArea();
 }
