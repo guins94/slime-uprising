@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1666753929, guid: 83bf93558b0ec514a95bd6edcd67f7ac, type: 3}
+  m_Sprite: {fileID: -984954466, guid: 83bf93558b0ec514a95bd6edcd67f7ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemSpriteRenderer: {fileID: 1715817050058093490}
   itemCollider2D: {fileID: 7639334835764974643}
+  setExperienceGoToPlayer: 0
 --- !u!58 &7639334835764974643
 CircleCollider2D:
   m_ObjectHideFlags: 0
