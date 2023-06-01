@@ -18,7 +18,7 @@ public class Teleport : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            LoadScene(1);
+            LoadScene(2);
         }
     }
 }
