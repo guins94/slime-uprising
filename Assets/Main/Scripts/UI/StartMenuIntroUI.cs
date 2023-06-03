@@ -35,7 +35,7 @@ public class StartMenuIntroUI : MonoBehaviour
 
     private void SceneLoading()
     {
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadSceneAsync(2);
     }
 
     private void ActivateConfigGameCanvas()
