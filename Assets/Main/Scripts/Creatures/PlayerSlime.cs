@@ -24,6 +24,7 @@ public class PlayerSlime : Creature
     public void Start()
     {
         if (hasInitialItem) StartCoroutine(initialShooterItem.SetInitialItem());
+        GameManager.GameManagerInstance.FileLoaded += LoadShopStatus;
     }
 
     protected override void OnDeath()
@@ -42,7 +43,8 @@ public class PlayerSlime : Creature
         //Debug.Log("Player move " + context.ReadValue<Vector2>().y);
         playerMovement = new Vector2(context.ReadValue<Vector2>().x * movementSpeed, context.ReadValue<Vector2>().y * movementSpeed);
 
-        if (context.ReadValue<Vector2>().x <=0 ) SpriteRenderer.flipX = true;
+        if (SpriteRenderer == null) return;
+        if (context.ReadValue<Vector2>().x <= 0 ) SpriteRenderer.flipX = true;
         else SpriteRenderer.flipX = false;
         
     }
@@ -74,6 +76,29 @@ public class PlayerSlime : Creature
     void OnDisable()
     {
         //moveAction.Disable();
+    }
+
+    /// <summary>
+    /// Gets all information from the shop extra status
+    /// </summary>
+    private void LoadShopStatus()
+    {
+        // Add Shop Extra Armor
+        int armorGained = 5*GameManager.GameManagerInstance.MainShopIndexVector[0];
+        CreatureArmor.RaiseArmor(DamageType.Physic, armorGained);
+        Debug.Log("Shop Index " + GameManager.GameManagerInstance.MainShopIndexVector[0]);
+
+        // Add Shop Extra Magic Armor
+        int magicGained = 5*GameManager.GameManagerInstance.MainShopIndexVector[1];
+        CreatureArmor.RaiseArmor(DamageType.Magic, magicGained);
+
+        // Add Shop Extra Health
+        int healthGained = 5*GameManager.GameManagerInstance.MainShopIndexVector[2];
+        CreatureHealth.AddMaxHealth(healthGained);
+
+        // Add Shop Extra Damage
+        float damageGained = 5*GameManager.GameManagerInstance.MainShopIndexVector[3];
+        AddMaxDamage(damageGained);
     }
 
     /// <summary>
