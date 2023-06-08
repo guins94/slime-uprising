@@ -116,5 +116,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemSpriteRenderer: {fileID: 4858740370531504859}
   itemCollider2D: {fileID: 4858740370531504858}
-  armorGained: 24
+  armorGained: 5
   armorDamageType: 1
