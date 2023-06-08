@@ -1058,11 +1058,11 @@ RectTransform:
   - {fileID: 1966827148}
   - {fileID: 1990788194}
   m_Father: {fileID: 542004755}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -351, y: 87.9}
+  m_AnchoredPosition: {x: -351, y: 252.73996}
   m_SizeDelta: {x: 184, y: 216}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &173315366
@@ -3795,8 +3795,8 @@ RectTransform:
   - {fileID: 2040240109}
   - {fileID: 15511183}
   - {fileID: 1029129448}
-  - {fileID: 2091413375}
   - {fileID: 173315365}
+  - {fileID: 2091413375}
   - {fileID: 1813202573}
   m_Father: {fileID: 1160971340}
   m_RootOrder: 0
@@ -5627,7 +5627,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970567427}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.443674, y: -3.2026126, z: -12}
+  m_LocalPosition: {x: -20.45323, y: -3.2026126, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6775,7 +6775,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1149889960}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.443674, y: -3.2026126, z: -12}
+  m_LocalPosition: {x: -20.45323, y: -3.2026126, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -17626,6 +17626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gold: 0
   scroll: 0
+  MainShopIndexVector: 00000000000000000000000000000000
   experienceGoToPlayer: 0
 --- !u!4 &1363572878
 Transform:
@@ -29215,7 +29216,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -351, y: -76.4}
+  m_AnchoredPosition: {x: -351, y: -64}
   m_SizeDelta: {x: 184, y: 216}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1813202574
@@ -30079,17 +30080,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainsShopCanva: {fileID: 1160971341}
   armorButton: {fileID: 2058381274}
+  magicButton: {fileID: 11623457}
   healthButton: {fileID: 1333712128}
-  attackButton: {fileID: 11623457}
-  magicButton: {fileID: 2105268885}
+  damageButton: {fileID: 2105268885}
   armorText: {fileID: 1789739741}
+  magicText: {fileID: 149572699}
   healthText: {fileID: 630694947}
-  attackText: {fileID: 149572699}
-  magicText: {fileID: 456388771}
+  damageText: {fileID: 456388771}
   armorUpgradeText: {fileID: 1635738076}
+  magicUpgradeText: {fileID: 1259334025}
   healthUpgradeText: {fileID: 1501007448}
-  attackUpgradeText: {fileID: 1259334025}
-  magicUpgradeText: {fileID: 32322229}
+  damageUpgradeText: {fileID: 32322229}
   prices: 1e00000028000000320000003c00000046000000500000005a000000640000006e00000078000000820000008c00000096000000a0000000aa000000b4000000be000000c80000002c01000090010000f4010000
 --- !u!4 &2020193809
 Transform:
@@ -30669,11 +30670,11 @@ RectTransform:
   - {fileID: 2073462581}
   - {fileID: 1527724446}
   m_Father: {fileID: 542004755}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -351, y: 252.74}
+  m_AnchoredPosition: {x: -351, y: 108.000015}
   m_SizeDelta: {x: 184, y: 216}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2091413376
