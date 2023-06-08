@@ -9,6 +9,7 @@ public class GameData
     public int scroll;
 
     public int[] mainShopIndexVector = null;
+    public bool[] ScrollShopIndexVector = null;
 
     // Public Method to Set in Game amounts.
     public GameData()
@@ -16,5 +17,6 @@ public class GameData
         this.gold = 0;
         this.scroll = 0;
         this.mainShopIndexVector = new int[] {0, 0, 0, 0};
+        this.ScrollShopIndexVector = new bool[] {false, false, false, false};
     }
 }

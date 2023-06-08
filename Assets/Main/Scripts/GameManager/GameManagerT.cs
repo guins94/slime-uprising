@@ -21,6 +21,7 @@ public abstract class GameManagerT : MonoBehaviour, ISaveData
     public int scroll = 0;
 
     public int[] MainShopIndexVector = new int[] {0, 0, 0, 0};
+    public bool[] ScrollShopIndexVector = new bool[] {false, false, false, false};
 
     // ISaveManager needed functions
     public void LoadData(GameData data)
@@ -28,6 +29,7 @@ public abstract class GameManagerT : MonoBehaviour, ISaveData
         this.gold = data.gold;
         this.scroll = data.scroll;
         this.MainShopIndexVector = data.mainShopIndexVector;
+        this.ScrollShopIndexVector = data.ScrollShopIndexVector;
         FileLoaded?.Invoke();
     }
 
@@ -36,5 +38,6 @@ public abstract class GameManagerT : MonoBehaviour, ISaveData
         data.gold = this.gold;
         data.scroll = this.scroll;
         data.mainShopIndexVector = this.MainShopIndexVector;
+        data.ScrollShopIndexVector = this.ScrollShopIndexVector;
     }
 }
