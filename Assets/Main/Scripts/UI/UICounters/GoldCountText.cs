@@ -9,18 +9,18 @@ public class GoldCountText : MonoBehaviour
     [SerializeField] private Text goldText = null;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         GameEventsManager.GoldCoinCollected += GoldCoinCollected;
         GameEventsManager.GoldCoinWasted += GoldCoinWasted;
-        goldCount = GameManager.GameManagerInstance.gold;
-        UpdateTextHolder();
+        GameManager.GameManagerInstance.FileLoaded += FileLoaded;
     }
 
     void OnDelete()
     {
         GameEventsManager.GoldCoinCollected -= GoldCoinCollected;
         GameEventsManager.GoldCoinWasted -= GoldCoinWasted;
+        GameManager.GameManagerInstance.FileLoaded -= FileLoaded;
     }
 
     private void GoldCoinCollected()
@@ -41,6 +41,13 @@ public class GoldCountText : MonoBehaviour
     private void UpdateTextHolder()
     {
         goldText.text = "" + goldCount;
+    }
+
+    private void FileLoaded()
+    {
+        Debug.Log("Gold " + GameManager.GameManagerInstance.gold);
+        goldCount = GameManager.GameManagerInstance.gold;
+        UpdateTextHolder();
     }
 
     /*

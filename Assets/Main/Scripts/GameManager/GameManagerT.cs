@@ -18,7 +18,6 @@ public abstract class GameManagerT : MonoBehaviour, ISaveData
 
     //Save Dependent References
     public int gold = 0;
-    
     public int scroll = 0;
 
     public int[] MainShopIndexVector = new int[] {0, 0, 0, 0};
@@ -27,6 +26,7 @@ public abstract class GameManagerT : MonoBehaviour, ISaveData
     public void LoadData(GameData data)
     {
         this.gold = data.gold;
+        this.scroll = data.scroll;
         this.MainShopIndexVector = data.mainShopIndexVector;
         FileLoaded?.Invoke();
     }
@@ -34,6 +34,7 @@ public abstract class GameManagerT : MonoBehaviour, ISaveData
     public void SaveData(ref GameData data)
     {
         data.gold = this.gold;
+        data.scroll = this.scroll;
         data.mainShopIndexVector = this.MainShopIndexVector;
     }
 }
