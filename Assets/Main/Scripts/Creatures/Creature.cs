@@ -96,6 +96,14 @@ public abstract class Creature : MonoBehaviour
         CreatureBody.AddForce(direction * push);
     }
 
+    /// <summary>
+    /// Add a amount of max damage to a Creature.
+    /// </summary>
+    public void AddMaxDamage(float addMaxDamage)
+    {
+        CreatureHitDamage = CreatureHitDamage + addMaxDamage;
+    }
+
     // Update is called once per frame
     void Update() => Move();
 

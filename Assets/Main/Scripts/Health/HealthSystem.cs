@@ -33,4 +33,9 @@ public class HealthSystem : MonoBehaviour
         if (health + gainedHealth < maxHealth) health = maxHealth;
         else health = Mathf.Ceil(health + gainedHealth);
     }
+
+    public void AddMaxHealth(float extraMaxHealth)
+    {
+        maxHealth = maxHealth + extraMaxHealth;
+    }
 }
