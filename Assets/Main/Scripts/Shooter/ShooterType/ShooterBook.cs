@@ -26,22 +26,22 @@ public class ShooterBook : Shooter
 
     private void ReleaseBullet(BulletType bulletType)
     {
-        Bullet newBullet = null;
-        if (bulletType == BulletType.CompleteCircleBook) newBullet = CompleteCircleBook;
-        if (bulletType == BulletType.CrossBook) newBullet = CrossBook;
-        if (bulletType == BulletType.XBook) newBullet = XBook;
-        if (bulletType == BulletType.FowardBook) newBullet = FowardBook;
-        if (newBullet != null)
+        Bullet Bullet = null;
+        if (bulletType == BulletType.CompleteCircleBook) Bullet = CompleteCircleBook;
+        if (bulletType == BulletType.CrossBook) Bullet = CrossBook;
+        if (bulletType == BulletType.XBook) Bullet = XBook;
+        if (bulletType == BulletType.FowardBook) Bullet = FowardBook;
+        if (Bullet != null)
         {
-            newBullet = Instantiate(newBullet, Vector3.zero, Quaternion.identity);
-            if (initialType == BulletType.CompleteCircleBook) newBullet.bulletMovement = newBullet.gameObject.AddComponent<BulletCompleteCircleBook>();
-            if (initialType == BulletType.CrossBook) newBullet.bulletMovement = newBullet.gameObject.AddComponent<BulletCrossBook>();
-            if (initialType == BulletType.XBook) newBullet.bulletMovement = newBullet.gameObject.AddComponent<BulletXBook>();
-            if (initialType == BulletType.FowardBook) newBullet.bulletMovement = newBullet.gameObject.AddComponent<BulletFowardBook>();
-            newBullet.bulletMovement.ChangeMovement(ShooterLevel);
-            newBullet.BulletLevel = ShooterLevel;
-            newBullet.gameObject.SetActive(false);
-            BulletList.Add(newBullet);
+            Bullet = Instantiate(Bullet, Vector3.zero, Quaternion.identity);
+            if (initialType == BulletType.CompleteCircleBook) Bullet.bulletMovement = Bullet.gameObject.AddComponent<BulletCompleteCircleBook>();
+            if (initialType == BulletType.CrossBook) Bullet.bulletMovement = Bullet.gameObject.AddComponent<BulletCrossBook>();
+            if (initialType == BulletType.XBook) Bullet.bulletMovement = Bullet.gameObject.AddComponent<BulletXBook>();
+            if (initialType == BulletType.FowardBook) Bullet.bulletMovement = Bullet.gameObject.AddComponent<BulletFowardBook>();
+            Bullet.bulletMovement.ChangeMovement(ShooterLevel);
+            Bullet.BulletLevel = ShooterLevel;
+            Bullet.gameObject.SetActive(false);
+            BulletList.Add(Bullet);
             canReleaseBullet = false;
             StartCoroutine(ActivateAllBullets());
         } 
