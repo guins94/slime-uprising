@@ -13,6 +13,11 @@ public class GoldCountText : MonoBehaviour
     {
         GameEventsManager.GoldCoinCollected += GoldCoinCollected;
         GameEventsManager.GoldCoinWasted += GoldCoinWasted;
+        if (GameManager.GameManagerInstance != null) GameManager.GameManagerInstance.FileLoaded += FileLoaded;
+    }
+
+    void Start()
+    {
         GameManager.GameManagerInstance.FileLoaded += FileLoaded;
     }
 
@@ -32,7 +37,6 @@ public class GoldCountText : MonoBehaviour
 
     private void GoldCoinWasted(int goldToWaste)
     {
-        Debug.Log("coin Waste " + goldToWaste);
         goldCount = goldCount - goldToWaste;
         GameManager.GameManagerInstance.gold = goldCount;
         UpdateTextHolder();
@@ -45,7 +49,6 @@ public class GoldCountText : MonoBehaviour
 
     private void FileLoaded()
     {
-        Debug.Log("Gold " + GameManager.GameManagerInstance.gold);
         goldCount = GameManager.GameManagerInstance.gold;
         UpdateTextHolder();
     }

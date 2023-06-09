@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +14,14 @@ public class ScrollCountText : MonoBehaviour
     {
         GameEventsManager.ScrollCollected += ScrollCollected;
         GameEventsManager.ScrollWasted += ScrollWasted;
-        GameManager.GameManagerInstance.FileLoaded += FileLoaded;
+        if (GameManager.GameManagerInstance == null) GameManager.GameManagerInstance.FileLoaded += FileLoaded;
+        else StartCoroutine(LateFileLoaded());
+
+        IEnumerator LateFileLoaded()
+        {
+            yield return new WaitForSeconds(1.2f);
+            FileLoaded();
+        }
     }
 
     void OnDelete()
@@ -27,7 +35,6 @@ public class ScrollCountText : MonoBehaviour
     {
         scrollCount++;
         GameManager.GameManagerInstance.scroll = scrollCount;
-        Debug.Log(GameManager.GameManagerInstance.scroll);
         UpdateTextHolder();
     }
 
