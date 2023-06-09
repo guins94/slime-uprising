@@ -161,7 +161,6 @@ MonoBehaviour:
   creatureHealth: {fileID: 613043075550226422}
   creatureBody: {fileID: 613043075550226421}
   creatureArmor: {fileID: 613043075550226423}
-  damageArea: {fileID: 0}
   explosion: {fileID: 4797261465186692032, guid: d8a097b61ecf3444e958f67aaf8b67c2, type: 3}
   CreatureDamageType: 1
   CreatureHitDamage: 5
@@ -170,6 +169,7 @@ MonoBehaviour:
   healthBar: {fileID: 5959246506998670033}
   shooterSystem: {fileID: 613043075726997089}
   experienceSystem: {fileID: 613043075550226416}
+  slimeCollider: {fileID: 613043075550226420}
   initialShooterItem: {fileID: 4304133868078650685, guid: 04f5ae1a00e0aa6468d4d38763f882f0, type: 3}
   hasInitialItem: 1
 --- !u!212 &613043075550226378

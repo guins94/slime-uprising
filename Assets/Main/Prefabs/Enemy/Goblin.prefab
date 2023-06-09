@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500564137784901141}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.01, y: 1.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -58,12 +58,13 @@ MonoBehaviour:
   creatureArmor: {fileID: 2466955307088179995}
   explosion: {fileID: 4797261465186692032, guid: d8a097b61ecf3444e958f67aaf8b67c2, type: 3}
   CreatureDamageType: 1
-  CreatureHitDamage: 100
+  CreatureHitDamage: 200
   movementSpeed: 20
   pushForce: 200
   enemyCollider: {fileID: 3331454826414941492}
   enemyColliderPusher: {fileID: 1500564137784901138}
   enemyCoolDownTimer: 3
+  TakingAreaDamage: 0
 --- !u!212 &1500564137784901143
 SpriteRenderer:
   m_ObjectHideFlags: 0
