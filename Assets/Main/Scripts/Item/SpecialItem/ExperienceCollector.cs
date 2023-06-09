@@ -22,7 +22,6 @@ public class ExperienceCollector : Item
         for (int i = 0; i <= (experienceItem.Length - 1); i++)
         {
             experienceItem[i].SetGoToPlayer();
-            Debug.Log(i);
         }
     } 
 }

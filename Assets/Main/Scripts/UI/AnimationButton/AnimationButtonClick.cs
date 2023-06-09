@@ -47,7 +47,6 @@ public class AnimationButtonClick : MonoBehaviour
         {
             if (FadeOutCanva.alpha < 1)
             {
-                Debug.Log("update");
                 FadeOutCanva.alpha += Time.deltaTime * TimeToFade;
                 if (FadeOutCanva.alpha >= 1)
                 {

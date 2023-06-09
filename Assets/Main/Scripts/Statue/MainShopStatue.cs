@@ -115,7 +115,6 @@ public class MainShopStatue : MonoBehaviour, ISaveData
     public void OnMouseDown()
     {
         if (EventSystem.current.IsPointerOverGameObject()) return;
-        Debug.Log("Button Pressed");
         MainsShopCanva.enabled = true;
     }
 

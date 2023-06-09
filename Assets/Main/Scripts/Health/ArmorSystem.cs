@@ -15,7 +15,6 @@ public class ArmorSystem : MonoBehaviour
         if (damageType == DamageType.TrueDamage) return damage;
         if (damageType == DamageType.Physic) 
         {
-            Debug.Log("Damage p " + PhysicDamageTaken(damage));
             return PhysicDamageTaken(damage);
         } 
         if (damageType == DamageType.Magic) return MagicDamageTaken(damage);

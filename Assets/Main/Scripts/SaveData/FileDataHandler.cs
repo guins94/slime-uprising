@@ -30,7 +30,6 @@ public class FileDataHandler : MonoBehaviour
                     using (StreamReader reader = new StreamReader(stream))
                     {
                         dataToLoad = reader.ReadToEnd();
-                        Debug.Log(dataToLoad);
                     }
                 }
 
