@@ -28,7 +28,6 @@ public class ItemSpawn : MonoBehaviour
     private void SpawnInitialItem()
     {
         List<Item> possibleSpawn = new List<Item>();
-        Debug.Log("teste " + itemToSpawn[0]);
         if (GameManager.GameManagerInstance.ScrollShopIndexVector != null)
         {
             if (GameManager.GameManagerInstance.ScrollShopIndexVector[0] == true)
@@ -38,7 +37,7 @@ public class ItemSpawn : MonoBehaviour
             if (GameManager.GameManagerInstance.ScrollShopIndexVector[2] == true)
                 possibleSpawn.Add(itemToSpawn[2]);
         }
-        if (possibleSpawn == null) return;
+        if (possibleSpawn == new List<Item>()) return;
         else
         {
             int i = Random.Range(0, possibleSpawn.Count);

@@ -92,6 +92,7 @@ public class GameManager : GameManagerT
     /// </summary>
     void GameOver()
     {
+        GameManager.SoundManager.Play(3);
         StartCoroutine(PauseLateActivate());
 
         IEnumerator PauseLateActivate()
@@ -106,6 +107,7 @@ public class GameManager : GameManagerT
     /// </summary>
     void OnLevelUp()
     {
+        GameManager.SoundManager.Play(4);
         if (BookCanvas != null)
         {
             Time.timeScale = 0f;
@@ -118,6 +120,7 @@ public class GameManager : GameManagerT
     /// </summary>
     void OnMaxLevel()
     {
+        GameManager.SoundManager.Play(4);
         if (BookCanvas != null)
         {
             Time.timeScale = 0f;

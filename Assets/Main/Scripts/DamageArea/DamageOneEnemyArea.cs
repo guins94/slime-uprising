@@ -24,6 +24,8 @@ public class DamageOneEnemyArea : DamageArea
         GameManager.DamageUIMessager.ShowDamageUI(damageTaken.ToString(), enemy.transform.position);
         Vector2 explosionPosition = new Vector2(enemy.transform.position.x, enemy.transform.position.y - explosionOffSetY);
         Instantiate(ExplosionEffect, explosionPosition, Quaternion.identity);
+
+        GameManager.SoundManager.Play(13);
         yield return new WaitForSeconds(coolDownDamageArea);
         coolDownCoroutine = null;
     }

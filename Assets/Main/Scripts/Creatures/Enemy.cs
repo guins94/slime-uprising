@@ -8,6 +8,9 @@ public class Enemy : Creature
     [SerializeField] Collider2D enemyColliderPusher = null;
     [SerializeField] float enemyCoolDownTimer = 3f;
 
+    [Header("Sound Index Reference")]
+    [SerializeField] int[] soundIndex = new int[] {};
+
     public bool TakingAreaDamage = false;
     bool disableMovement = false;
     Coroutine MoveEnemyCoroutine = null;
@@ -119,6 +122,12 @@ public class Enemy : Creature
     /// </summary>
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("Player"))
+        {
+            // Hurts the Player
+            PushEffect(GameManager.Player.transform.position, transform.position, 100);
+        }
+
         if (collision.CompareTag("Bullet"))
         {
             // Hurts the Player
@@ -130,11 +139,12 @@ public class Enemy : Creature
             // Hurts the Player
             EnemyHurtCoolDown = StartCoroutine(HurtEnemyAfterCooldown());
         }
-        
 
         IEnumerator HurtEnemyAfterCooldown()
         {
+            PlayEnemyHitSound();
             Animator.SetTrigger("Damage");
+            
             yield return new WaitForSeconds(.1f);
             int damageTaken = (int) CreatureArmor.CalculatedDamage(GameManager.Player.CreatureDamageType, GameManager.Player.CreatureHitDamage);
             CreatureHealth.TakeDamage(damageTaken);
@@ -153,6 +163,16 @@ public class Enemy : Creature
             // Turns On Damage Area on the enemy
             TakingAreaDamage = false;
         }
+    }
+
+    /// <summary>
+    /// Play Item Pick Up Sound
+    /// </summary>
+    private void PlayEnemyHitSound()
+    {
+        if (GameManager.SoundManager == null) return;
+        int i = Random.Range(0, soundIndex.Length - 1);
+        GameManager.SoundManager.Play(soundIndex[i]);
     }
 }
 

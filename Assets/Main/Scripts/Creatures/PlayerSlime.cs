@@ -132,6 +132,7 @@ public class PlayerSlime : Creature
 
         IEnumerator HurtPlayerAfterCooldown()
         {
+            GameManager.SoundManager.Play(16);
             Animator.SetBool("Damage", true);
             yield return new WaitForSeconds(.1f);
             Creature enemy = collision.gameObject.GetComponent<Creature>();

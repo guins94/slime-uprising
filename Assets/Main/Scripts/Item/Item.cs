@@ -18,6 +18,7 @@ public abstract class Item : MonoBehaviour
         {
             itemCollider2D.enabled = false;
             ItemSpriteRenderer.enabled = false;
+            PlayItemPickUpSound();
             StartCoroutine(ItemEffect());
         }
     }
@@ -28,5 +29,11 @@ public abstract class Item : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         Destroy(this.gameObject);
+    }
+
+    private void PlayItemPickUpSound()
+    {
+        if (GameManager.SoundManager == null) return;
+        GameManager.SoundManager.Play(2);
     }
 }
