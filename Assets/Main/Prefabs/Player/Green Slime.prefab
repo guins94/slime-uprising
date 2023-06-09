@@ -164,7 +164,7 @@ MonoBehaviour:
   explosion: {fileID: 4797261465186692032, guid: d8a097b61ecf3444e958f67aaf8b67c2, type: 3}
   CreatureDamageType: 1
   CreatureHitDamage: 5
-  movementSpeed: 2
+  movementSpeed: 6
   pushForce: 200
   healthBar: {fileID: 5959246506998670033}
   shooterSystem: {fileID: 613043075726997089}
@@ -272,7 +272,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1.8
   m_LinearDrag: 10
   m_AngularDrag: 2
   m_GravityScale: 0

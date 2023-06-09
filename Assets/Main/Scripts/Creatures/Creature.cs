@@ -105,7 +105,7 @@ public abstract class Creature : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update() => Move();
+    void FixedUpdate() => Move();
 
     protected abstract void Move();
 
