@@ -12,6 +12,8 @@ public abstract class GameManagerT : MonoBehaviour, ISaveData
     public static ItemCanvaController ItemCanvaController { get; protected set; } = null;
 
     public static EnemySpawn EnemySpawn { get; protected set; } = null;
+    // Public Booleans
+    public bool OnPlay;
 
     // Public Actions
     public Action FileLoaded;
