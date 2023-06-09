@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a41f99b204d0e040ad1cad0c0c56a4f, type: 3}
   m_Name: Jingle win
   m_EditorClassIdentifier: 
-  audio: {fileID: 8300000, guid: 2135b07382ab043e3a8947ca810d9bfa, type: 3}
-  volume: 1
+  audio: {fileID: 8300000, guid: c0cabce778ad54792bba3a0ca6765417, type: 3}
+  volume: 0.149
   loop: 0
   delay: 0

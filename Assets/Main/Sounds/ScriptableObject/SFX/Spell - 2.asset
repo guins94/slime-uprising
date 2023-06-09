@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Spell - 2
   m_EditorClassIdentifier: 
   audio: {fileID: 8300000, guid: 9ae32f8e1a94c486c9929faca77ff03b, type: 3}
-  volume: 1
+  volume: 0.294
   loop: 0
   delay: 0

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Inventory- 0
   m_EditorClassIdentifier: 
   audio: {fileID: 8300000, guid: 914a4a2a124d040df96bf13308aadc2e, type: 3}
-  volume: 1
+  volume: 0.236
   loop: 0
   delay: 0

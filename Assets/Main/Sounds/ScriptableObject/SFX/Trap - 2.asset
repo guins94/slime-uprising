@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Trap - 2
   m_EditorClassIdentifier: 
   audio: {fileID: 8300000, guid: d4a7952ebb861462b92df5cdbb5177e0, type: 3}
-  volume: 1
+  volume: 0.088
   loop: 0
   delay: 0

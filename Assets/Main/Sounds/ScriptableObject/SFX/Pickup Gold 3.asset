@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Pickup Gold 3
   m_EditorClassIdentifier: 
   audio: {fileID: 8300000, guid: 7b34a1c3f2d86478f8ece94c4c46c8dd, type: 3}
-  volume: 1
+  volume: 0.436
   loop: 0
   delay: 0

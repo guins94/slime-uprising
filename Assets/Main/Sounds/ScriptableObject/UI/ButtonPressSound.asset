@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ButtonPressSound
   m_EditorClassIdentifier: 
   audio: {fileID: 8300000, guid: 33b6cd7837c7642958dac012307e9086, type: 3}
-  volume: 1
+  volume: 0.349
   loop: 0
   delay: 0.2

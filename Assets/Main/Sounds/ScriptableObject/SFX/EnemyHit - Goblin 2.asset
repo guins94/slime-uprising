@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: EnemyHit - Goblin 2
   m_EditorClassIdentifier: 
   audio: {fileID: 8300000, guid: 0cd0367ce705e426e944079a1e47eb84, type: 3}
-  volume: 1
+  volume: 0.071
   loop: 0
   delay: 1
