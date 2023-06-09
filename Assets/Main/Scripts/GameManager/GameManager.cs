@@ -22,6 +22,7 @@ public class GameManager : GameManagerT
         DamageUIMessager = FindObjectOfType<DamageUIMessager>();
         ItemCanvaController = FindObjectOfType<ItemCanvaController>();
         EnemySpawn = FindObjectOfType<EnemySpawn>();
+        SoundManager = FindObjectOfType<SoundManager>();
 
         // Starts to Hear Player Actions
         Player.ExperienceSystem.OnLevelUp += OnLevelUp;

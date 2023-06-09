@@ -6,6 +6,7 @@ public class MenuGameManager : GameManagerT
     void Awake()
     {
         GameManagerInstance = this;
+        SoundManager = FindObjectOfType<SoundManager>();
         Player = FindObjectOfType<PlayerSlime>();
     }
 }
