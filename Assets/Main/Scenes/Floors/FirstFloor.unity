@@ -2750,7 +2750,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18b79e25995fae9438af01d42c10979c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemToSpawn: []
+  itemToSpawn:
+  - {fileID: 221703126159980454, guid: fb1e0def52513d046b0d3cf135970fec, type: 3}
+  - {fileID: 5674736589608401309, guid: 868298d3c72ea0543ada37a431afd295, type: 3}
+  - {fileID: 8809533963534623511, guid: d711da4ae325a0441bfd0a8928b58b73, type: 3}
   coinItem: {fileID: 1844129501260590059, guid: 201db5813dfccfb41bf07526fa9e0d31, type: 3}
   spawnPosition:
   - {fileID: 809769530}
@@ -4841,7 +4844,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970567427}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.462698, y: 3.2209482, z: -12}
+  m_LocalPosition: {x: -8.453239, y: 3.2209482, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5411,7 +5414,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1149889960}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.462698, y: 3.2209482, z: -12}
+  m_LocalPosition: {x: -8.453239, y: 3.2209482, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

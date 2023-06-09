@@ -17,11 +17,34 @@ public class ItemSpawn : MonoBehaviour
     {
         //StartCoroutine(SpawnItem());
         GameEventsManager.GoldCoinCollected += GoldCoinCollected;
+        SpawnInitialItem();
     }
 
     void OnDestroy()
     {
         GameEventsManager.GoldCoinCollected -= GoldCoinCollected;
+    }
+
+    private void SpawnInitialItem()
+    {
+        List<Item> possibleSpawn = new List<Item>();
+        Debug.Log("teste " + itemToSpawn[0]);
+        if (GameManager.GameManagerInstance.ScrollShopIndexVector != null)
+        {
+            if (GameManager.GameManagerInstance.ScrollShopIndexVector[0] == true)
+                possibleSpawn.Add(itemToSpawn[0]);
+            if (GameManager.GameManagerInstance.ScrollShopIndexVector[1] == true)
+                possibleSpawn.Add(itemToSpawn[1]);
+            if (GameManager.GameManagerInstance.ScrollShopIndexVector[2] == true)
+                possibleSpawn.Add(itemToSpawn[2]);
+        }
+        if (possibleSpawn == null) return;
+        else
+        {
+            int i = Random.Range(0, possibleSpawn.Count);
+            Debug.Log("teste" + i);
+            Instantiate(itemToSpawn[i], Vector3.zero, Quaternion.identity);
+        } 
     }
 
     void GoldCoinCollected() => StartCoroutine(SpawnGoldCoin());

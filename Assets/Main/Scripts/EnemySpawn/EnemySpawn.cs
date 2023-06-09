@@ -7,7 +7,6 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] Enemy[] enemyToSpawn = null;
     [SerializeField] ExperienceItem experienceItem = null;
     [SerializeField] MaxExperienceItem maxExperienceItemPrefab = null;
-    
     [SerializeField] GameObject[] spawnPosition = null;
 
     private MaxExperienceItem maxExperienceItem = null;
