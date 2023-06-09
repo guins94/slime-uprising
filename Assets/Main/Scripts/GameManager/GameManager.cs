@@ -25,7 +25,7 @@ public class GameManager : GameManagerT
 
         // Starts to Hear Player Actions
         Player.ExperienceSystem.OnLevelUp += OnLevelUp;
-        Player.ExperienceSystem.OnLevelUp += OnMaxLevel;
+        Player.ExperienceSystem.OnMaxLevel += OnMaxLevel;
         Player.CreatureHealth.OnDeath += GameOver;
 
         // Main Game Loop
