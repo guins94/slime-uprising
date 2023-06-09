@@ -8,7 +8,6 @@ using UnityEngine.UI;
 /// </summary>
 public class HealthBar : Bar
 {
-
     public void SetHealth(float health, float maxHealth)
     {
         value = health;
