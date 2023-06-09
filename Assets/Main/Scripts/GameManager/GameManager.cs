@@ -59,6 +59,8 @@ public class GameManager : GameManagerT
             if (defeatedEnemys == 10)
             {
                 floorLevel++;
+                defeatedEnemys = 0;
+                Debug.Log("Level " + floorLevel);
                 if (floorLevel == 5)
                 {
                     if (EnemySpawn != null) EnemySpawn.SpawnAtRandomPlace(bigEnemy);
