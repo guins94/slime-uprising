@@ -14,6 +14,30 @@ public class Enemy : Creature
     Coroutine BulletHitCoroutine = null;
     Coroutine EnemyHurtCoolDown = null;
 
+    void Start()
+    {
+        base.Start();
+
+        GameManager gameManager = FindObjectOfType<GameManager>();
+        Debug.Log("Enemy FLoor level" + gameManager.floorLevel);
+        
+        // Add Shop Extra Armor
+        int armorGained = 3*gameManager.floorLevel;
+        CreatureArmor.RaiseArmor(DamageType.Physic, armorGained);
+
+        // Add Shop Extra Magic Armor
+        int magicGained = 3*gameManager.floorLevel;
+        CreatureArmor.RaiseArmor(DamageType.Magic, magicGained);
+
+        // Add Shop Extra Health
+        int healthGained = 10*gameManager.floorLevel;
+        CreatureHealth.AddMaxHealth(healthGained);
+
+        // Add Shop Extra Damage
+        float damageGained = 2*gameManager.floorLevel;
+        AddMaxDamage(damageGained);
+    }
+
     protected override void Move()
     {
         Animator.SetFloat("Speed", Mathf.Abs(CreatureBody.velocity.magnitude));
