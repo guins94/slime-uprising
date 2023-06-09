@@ -43,7 +43,8 @@ public class EnemySpawn : MonoBehaviour
         {
             numberOfEnemysOnScreen = numberOfEnemysOnScreen + 1;
             UpdateIndex();
-            Enemy newEnemy = Instantiate(enemyToSpawn[0], spawnPosition[indexSpawn].transform.position, Quaternion.identity);
+            int i = Random.Range(0, 2);
+            Enemy newEnemy = Instantiate(enemyToSpawn[i], spawnPosition[indexSpawn].transform.position, Quaternion.identity);
         }
     }
 
