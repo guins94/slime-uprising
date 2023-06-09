@@ -8,6 +8,7 @@ public class PlayerSlime : Creature
     [SerializeField] HealthBar healthBar = null;
     [SerializeField] ShooterSystem shooterSystem = null;
     [SerializeField] ExperienceSystem experienceSystem = null;
+    [SerializeField] Collider2D slimeCollider = null;
 
     [Header("Player Initial Item")]
     [SerializeField] ShooterItem initialShooterItem = null;
@@ -17,19 +18,25 @@ public class PlayerSlime : Creature
     public ExperienceSystem ExperienceSystem => experienceSystem;
     public ShooterSystem ShooterSystem => shooterSystem;
     private Vector2 playerMovement = Vector2.zero;
+    bool disableMovement = false;
 
     // Player Collision Cooldown Control
     private Coroutine PlayerHurtCoolDown = null;
 
     public void Start()
     {
+        CreatureHealth.OnDeath += OnDeath;
         if (hasInitialItem) StartCoroutine(initialShooterItem.SetInitialItem());
         GameManager.GameManagerInstance.FileLoaded += LoadShopStatus;
     }
 
     protected override void OnDeath()
     {
-
+        playerMovement = Vector2.zero;
+        CreatureHealth.OnDeath -= OnDeath;
+        slimeCollider.enabled = false;
+        disableMovement = true;
+        Animator.SetTrigger("Death");
     }
 
     protected override void Move()
@@ -41,6 +48,7 @@ public class PlayerSlime : Creature
     private void MovePlayer(InputAction.CallbackContext context)
     {
         //Debug.Log("Player move " + context.ReadValue<Vector2>().y);
+        if (disableMovement) return;
         playerMovement = new Vector2(context.ReadValue<Vector2>().x * movementSpeed, context.ReadValue<Vector2>().y * movementSpeed);
 
         if (SpriteRenderer == null) return;
@@ -84,20 +92,19 @@ public class PlayerSlime : Creature
     private void LoadShopStatus()
     {
         // Add Shop Extra Armor
-        int armorGained = 5*GameManager.GameManagerInstance.MainShopIndexVector[0];
+        int armorGained = 3*GameManager.GameManagerInstance.MainShopIndexVector[0];
         CreatureArmor.RaiseArmor(DamageType.Physic, armorGained);
-        Debug.Log("Shop Index " + GameManager.GameManagerInstance.MainShopIndexVector[0]);
 
         // Add Shop Extra Magic Armor
-        int magicGained = 5*GameManager.GameManagerInstance.MainShopIndexVector[1];
+        int magicGained = 3*GameManager.GameManagerInstance.MainShopIndexVector[1];
         CreatureArmor.RaiseArmor(DamageType.Magic, magicGained);
 
         // Add Shop Extra Health
-        int healthGained = 5*GameManager.GameManagerInstance.MainShopIndexVector[2];
+        int healthGained = 100*GameManager.GameManagerInstance.MainShopIndexVector[2];
         CreatureHealth.AddMaxHealth(healthGained);
 
         // Add Shop Extra Damage
-        float damageGained = 5*GameManager.GameManagerInstance.MainShopIndexVector[3];
+        float damageGained = 2*GameManager.GameManagerInstance.MainShopIndexVector[3];
         AddMaxDamage(damageGained);
     }
 
