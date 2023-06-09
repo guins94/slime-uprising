@@ -64,6 +64,7 @@ MonoBehaviour:
   enemyCollider: {fileID: 154152499557982834}
   enemyColliderPusher: {fileID: 4092381454813018452}
   enemyCoolDownTimer: 3
+  soundIndex: 05000000
   TakingAreaDamage: 0
 --- !u!212 &4092381454813018449
 SpriteRenderer:

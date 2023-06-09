@@ -432,7 +432,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afc852c5f9d6e97498ee8ee63f339897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSourceList:
+  soundList:
+  - {fileID: 11400000, guid: e13c95c06468e5646989eca28ed7533d, type: 2}
+  - {fileID: 11400000, guid: 98ae1ac08f9757545b5d62be41ac1547, type: 2}
+  - {fileID: 11400000, guid: 97604a8da4127b846852763015128198, type: 2}
+  - {fileID: 11400000, guid: a3714ad9f6a25994cbb032d1f9c62b13, type: 2}
+  - {fileID: 11400000, guid: 21ac9dde3fbfd704ca7268b4f7e70264, type: 2}
+  - {fileID: 11400000, guid: 866cf9af800f9f34c9e8a6d1fe285d8b, type: 2}
+  - {fileID: 11400000, guid: 64ac503a3977a764aa92820df7e28b78, type: 2}
+  - {fileID: 11400000, guid: 48e8d5a87fe15154290692a0afa0d25b, type: 2}
+  - {fileID: 11400000, guid: dd3662bef071fdf478bf4eed213817c1, type: 2}
+  - {fileID: 11400000, guid: aa5e5adc0b3ccff42bd3322bb477643e, type: 2}
+  - {fileID: 11400000, guid: 972dc3f6bb0f8bd418b9b5e0e127a065, type: 2}
+  - {fileID: 11400000, guid: 9ddd37dcba7dfdb4ab3f4394bcc21771, type: 2}
+  - {fileID: 11400000, guid: a597ea364eb2c2146a1f94178e5a1621, type: 2}
+  - {fileID: 11400000, guid: 17a899a17e3d87646b2b0cc09f81a761, type: 2}
+  - {fileID: 11400000, guid: 6159695550a01e144ba79e79c6bc96a8, type: 2}
+  - {fileID: 11400000, guid: e365150dd2d528f4da82d67cb69cfcf2, type: 2}
+  - {fileID: 11400000, guid: 0ad44cbe290ff6d4199358bee09dcab5, type: 2}
+  - {fileID: 11400000, guid: 0157e575ac6b75f4b813edce256896a7, type: 2}
+  - {fileID: 11400000, guid: a48ae9a3e775a304299b65b0735b3128, type: 2}
+  audioSourceReferences:
   - {fileID: 2769151904548989893}
   - {fileID: 1710086414587381527}
   - {fileID: 8990523978676251503}
