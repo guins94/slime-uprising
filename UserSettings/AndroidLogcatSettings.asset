@@ -2,8 +2,8 @@
     "m_SelectedDeviceId": "RQCW401RV6L",
     "m_SelectedPackage": {
         "deviceId": "RQCW401RV6L",
-        "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 8279,
+        "name": "com.guins94.slimeuprising",
+        "processId": 12755,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -24,6 +24,18 @@
             "deviceId": "RQCW401RV6L",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 8279,
+            "exited": false
+        },
+        {
+            "deviceId": "RQCW401RV6L",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 11211,
+            "exited": false
+        },
+        {
+            "deviceId": "RQCW401RV6L",
+            "name": "com.guins94.slimeuprising",
+            "processId": 12755,
             "exited": false
         }
     ],
