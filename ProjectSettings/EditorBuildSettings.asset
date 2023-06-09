@@ -21,4 +21,5 @@ EditorBuildSettings:
     path: Assets/Main/Scenes/Floors/FirstFloor.unity
     guid: 2f2987cc5c7ebca43899247e175cbfb5
   m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 91ab29b68b694244197f854186cf9bdf, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: e92dc4da22e852e4dbaffaacef44053c, type: 2}
