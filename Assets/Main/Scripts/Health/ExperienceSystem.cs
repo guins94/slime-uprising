@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 /// <summary>
 /// Updates the experience collected by the player
@@ -7,6 +8,8 @@ using System.Collections;
 public class ExperienceSystem : MonoBehaviour
 {
     [SerializeField] HealthBar ExperienceBar = null;
+    public Action OnLevelUp;
+    public Action OnMaxLevel;
     int[] ExperienceLevel = new int[] {20, 50, 130, 250, 543};
 
     private int totalExperience = 0;
@@ -28,11 +31,13 @@ public class ExperienceSystem : MonoBehaviour
                 currentExperience = currentExperience + 1;
                 if (ExperienceBar.value >= ExperienceLevel[index])
                 {
+                    OnLevelUp?.Invoke();
                     ExperienceBar.SetHealth(0, ExperienceLevel[index]);
                     index = index + 1;
                 }
                 else
                 {
+                    OnMaxLevel?.Invoke();
                     ExperienceBar.SetHealth(ExperienceBar.value + 1, ExperienceLevel[index]);
                 }
             }
