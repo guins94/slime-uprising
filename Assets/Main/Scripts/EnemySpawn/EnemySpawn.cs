@@ -48,6 +48,16 @@ public class EnemySpawn : MonoBehaviour
         }
     }
 
+    public void SpawnAtRandomPlace(Enemy enemy)
+    {
+        if (!enemysReachedMax && maxExperienceItem == null)
+        {
+            numberOfEnemysOnScreen = numberOfEnemysOnScreen + 1;
+            UpdateIndex();
+            Enemy newEnemy = Instantiate(enemy, spawnPosition[indexSpawn].transform.position, Quaternion.identity);
+        }
+    }
+
     public void EnemyDefeated(Vector3 enemyPosition)
     {
         numberOfEnemysOnScreen = numberOfEnemysOnScreen - 1;
