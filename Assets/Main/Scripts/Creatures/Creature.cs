@@ -29,7 +29,7 @@ public abstract class Creature : MonoBehaviour
 
     private bool creatureIsSlowed = false;
 
-    void Start()
+    public void Start()
     {
         creatureHealth.OnDeath += OnDeath;
         PlayerSlime slime = GameManager.Player;
