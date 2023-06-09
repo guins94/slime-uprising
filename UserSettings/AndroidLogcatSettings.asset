@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "RQCW401RV6L",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 16616,
+        "processId": 8279,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -18,6 +18,12 @@
             "deviceId": "RQCW401RV6L",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 16616,
+            "exited": false
+        },
+        {
+            "deviceId": "RQCW401RV6L",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 8279,
             "exited": false
         }
     ],
