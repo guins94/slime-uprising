@@ -34,6 +34,7 @@ public class Enemy : Creature
         GameManager.EnemySpawn.EnemyDefeated(transform.position);
         enemyCollider.enabled = false;
         enemyColliderPusher.enabled = false;
+        GameEventsManager.EnemyDefeated?.Invoke();
         StartCoroutine(DestroyEnemy());
 
         IEnumerator DestroyEnemy()
