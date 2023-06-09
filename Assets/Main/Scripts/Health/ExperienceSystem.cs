@@ -10,12 +10,15 @@ public class ExperienceSystem : MonoBehaviour
     [SerializeField] HealthBar ExperienceBar = null;
     public Action OnLevelUp;
     public Action OnMaxLevel;
-    int[] ExperienceLevel = new int[] {20, 50, 130, 250, 543};
+    int[] ExperienceLevel = new int[] {20, 25, 50, 80, 120};
 
     private int totalExperience = 0;
     private int currentExperience = 0;
     private int index = 0;
-    bool maxLevelReached => ExperienceLevel.Length <= index; 
+    bool maxLevelReached => (ExperienceLevel.Length - 1) <= index; 
+
+    // Variables Used to Level Up on Max Level
+    private int maxExperienceReachedIndex = 0;
 
     private void Awake()
     {
@@ -37,8 +40,26 @@ public class ExperienceSystem : MonoBehaviour
                 }
                 else
                 {
-                    OnMaxLevel?.Invoke();
                     ExperienceBar.SetHealth(ExperienceBar.value + 1, ExperienceLevel[index]);
+                }
+            }
+        }
+        else
+        {
+            if (currentExperience != totalExperience)
+            {
+                currentExperience = currentExperience + 1;
+                maxExperienceReachedIndex++;
+                if (maxExperienceReachedIndex >= 50)
+                {
+                    OnMaxLevel?.Invoke();
+                    maxExperienceReachedIndex = 0;
+                    ExperienceBar.SetHealth(0, 50);
+                    index = index + 1;
+                }
+                else
+                {
+                    ExperienceBar.SetHealth(ExperienceBar.value + 1, 50);
                 }
             }
         }
