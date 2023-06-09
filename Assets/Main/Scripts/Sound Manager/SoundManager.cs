@@ -7,6 +7,9 @@ using UnityEngine;
 /// </summary>
 public class SoundManager : MonoBehaviour
 {
+    [Header("Sound References")]
+    [SerializeField] List<Sound> soundList = null;
+
     [Header("Audio Source References")]
     [SerializeField] List<AudioSource> audioSourceReferences = new List<AudioSource>();
 
@@ -24,6 +27,15 @@ public class SoundManager : MonoBehaviour
     Coroutine newSoundCoroutine = null;
 
     /// <summary>
+    /// Play Sound Depending On the Index Guiven
+    /// </summary>
+    public void Play(int index)
+    {
+        if (index > soundList.Count - 1) return;
+        Play(soundList[index]);
+    }
+
+    /// <summary>
     /// Generic Function that plays a sound if it's not playing already.
     /// </summary>
     public void Play(Sound sound)
@@ -33,6 +45,23 @@ public class SoundManager : MonoBehaviour
         {
             newSoundCoroutine = StartCoroutine(PlayCoroutine(sound));
         } 
+    }
+
+    /// <summary>
+    /// Plays a random sound from a list of sounds.
+    /// </summary>
+    public void PlayRandomSound(Sound[] sounds)
+    {
+        if (sounds == null) return;
+        Sound s = null;
+        int index = UnityEngine.Random.Range(0, sounds.Length - 1);
+        s = sounds[index];
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: Not in the list!");
+            return;
+        }
+        Play(s);
     }
 
     /// <summary>
@@ -87,22 +116,5 @@ public class SoundManager : MonoBehaviour
     {
         if (soundAudioSourceDictionary.ContainsKey(sound)) audioSourceReferences[soundAudioSourceDictionary[sound]].Stop();
         // TODO: Stop the specific sound from the coroutine.
-    }
-
-    /// <summary>
-    /// Plays a random sound from a list of sounds.
-    /// </summary>
-    public void PlayRandomSound(Sound[] sounds)
-    {
-        if (sounds == null) return;
-        Sound s = null;
-        int index = UnityEngine.Random.Range(0, sounds.Length - 1);
-        s = sounds[index];
-        if (s == null)
-        {
-            Debug.LogWarning("Sound: Not in the list!");
-            return;
-        }
-        Play(s);
     }
 }
